@@ -10,15 +10,15 @@
       update_cache: true
       cache_valid_time: 3600
       force_apt_get: true
-  - name: "apt-get-upgrade"
-    apt:
-      upgrade: yes
-      cache_valid_time: 3600
   - name: Install software-properties-common
     apt:
       name: software-properties-common
       state: present
-      update_cache: yes
+      update_cache: yes   
+  - name: install JRE
+    apt:
+      name: default-jre
+      state: present
   - name: "Add jenkins key"
     apt_key:
      url: "https://pkg.jenkins.io/debian-stable/jenkins.io.key"
@@ -26,17 +26,7 @@
   - name: "Install Jenkins"
     apt:
       update_cache: yes
-      name: nodejs
       state: present
-  - name: Install java
-    apt:
-      name: java-11-openjdk-devel
-      state: present
-
-  - name: daemon-reload to pick up config changes
-    ansible.builtin.systemd:
-      daemon_reload: yes
-
   - name: Start jenkins
     ansible.builtin.systemd:
       name: jenkins
