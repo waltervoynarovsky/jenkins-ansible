@@ -14,7 +14,7 @@
     apt:
       name: software-properties-common
       state: present
-      update_cache: yes   
+      update_cache: yes
   - name: install JRE
     apt:
       name: default-jre
@@ -31,6 +31,3 @@
     ansible.builtin.systemd:
       name: jenkins
       state: started
-
-
-
