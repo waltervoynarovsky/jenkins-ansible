@@ -23,24 +23,15 @@
     apt_key:
      url: "https://pkg.jenkins.io/debian-stable/jenkins.io.key"
      state: present
-  - name: yum update
-    yum:
-      name: '*'
-      state: latest
   - name: "Install Jenkins"
     apt:
       update_cache: yes
       name: nodejs
       state: present
   - name: Install java
-    yum:
+    apt:
       name: java-11-openjdk-devel
       state: present
-
-  - name: Install jenkins
-    yum:
-      name: jenkins
-      state: latest
 
   - name: daemon-reload to pick up config changes
     ansible.builtin.systemd:
@@ -50,3 +41,6 @@
     ansible.builtin.systemd:
       name: jenkins
       state: started
+
+
+
