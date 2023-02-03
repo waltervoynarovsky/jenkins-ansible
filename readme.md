@@ -12,9 +12,13 @@ Deliverables:
 
 
 -Playbook for Jenkins
+
 -To configure a Jenkins instance on AWS (Provide IP Address)
+
 -Detailed README.md on how to use your Playbook.
+
 -Screen recording of you playbook running and Jenkins working.
+
 
 
 ![Preview Gif](https://github.com/waltervoynarovsky/jenkins-ansible/blob/main/230131%20jenkins%20recording.gif)
